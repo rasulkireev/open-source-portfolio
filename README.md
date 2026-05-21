@@ -26,3 +26,5 @@ Then open `http://localhost:4173`.
 ## Deployment
 
 Push to `main`. The workflow in `.github/workflows/pages.yml` publishes the repo root to GitHub Pages.
+
+GitHub Pages from a private repository requires a GitHub plan that supports private-repo Pages. If Pages activation fails, either make this repository public when ready or enable a plan with private Pages support, then re-run the workflow.
