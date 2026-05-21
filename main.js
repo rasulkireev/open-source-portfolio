@@ -1,15 +1,55 @@
-import { archiveProjects, contributions, featuredProjects } from "./data.js";
+import { archiveProjects, caseStudies, contributions, featuredProjects } from "./data.js?v=20260521e";
 
+const caseStudyHost = document.querySelector("#case-studies");
 const projectGrid = document.querySelector("#featured-projects");
 const contributionList = document.querySelector("#contribution-list");
 const archiveGrid = document.querySelector("#archive-grid");
 const progressRail = document.querySelector(".progress-rail");
-const sections = [...document.querySelectorAll(".slide")];
+let sections = [];
 
 const formatter = new Intl.NumberFormat("en-US");
 
-function repoImage(project) {
-  return `https://opengraph.githubassets.com/portfolio-${project.owner}-${project.repo}/${project.owner}/${project.repo}`;
+function renderCaseStudies() {
+  caseStudyHost.innerHTML = caseStudies
+    .map(
+      (project, index) => `
+        <section id="${project.id}" class="slide case-study-slide case-study-${project.accent}">
+          <div class="case-study-copy reveal">
+            <p class="eyebrow">Project deep dive ${String(index + 1).padStart(2, "0")}</p>
+            <h2>${project.name}</h2>
+            <p class="case-study-lede">${project.description}</p>
+            <div class="tag-row case-tags">
+              ${project.tags.map((tag) => `<span>${tag}</span>`).join("")}
+            </div>
+            <ul class="case-bullets">
+              ${project.bullets.map((bullet) => `<li>${bullet}</li>`).join("")}
+            </ul>
+            <div class="cta-row">
+              <a class="button primary" href="${project.repoUrl}">Repository</a>
+              ${project.homepage ? `<a class="button" href="${project.homepage}">Live site</a>` : ""}
+            </div>
+          </div>
+          <aside class="case-study-media reveal">
+            <a href="${project.repoUrl}" aria-label="Open ${project.name} repository">
+              <div class="case-visual">
+                <div class="browser-bar">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <p>${project.owner}/${project.repo}</p>
+                <strong>${project.name}</strong>
+                <small>${project.language}</small>
+              </div>
+            </a>
+            <div class="case-stat-grid">
+              ${project.stats.map((stat) => `<span>${stat}</span>`).join("")}
+            </div>
+          </aside>
+        </section>
+      `,
+    )
+    .join("");
 }
 
 function renderProjects() {
@@ -18,7 +58,11 @@ function renderProjects() {
       (project) => `
         <article class="project-card reveal">
           <a class="project-image-link" href="${project.repoUrl}" aria-label="Open ${project.name} repository">
-            <img class="project-image" src="${repoImage(project)}" alt="${project.name} GitHub preview" loading="lazy" />
+            <div class="project-art">
+              <span>${project.owner}</span>
+              <strong>${project.name}</strong>
+              <small>${project.language}</small>
+            </div>
           </a>
           <div class="project-body">
             <div class="project-kicker">
@@ -74,6 +118,7 @@ function renderArchive() {
 }
 
 function renderProgress() {
+  sections = [...document.querySelectorAll(".slide")];
   progressRail.innerHTML = sections
     .map(
       (section, index) => `
@@ -86,6 +131,7 @@ function renderProgress() {
 }
 
 function setupObservers() {
+  sections = [...document.querySelectorAll(".slide")];
   const revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -152,10 +198,22 @@ function setupKeyboardNavigation() {
   });
 }
 
+function alignInitialHash() {
+  if (!location.hash) return;
+  const align = () => {
+    const target = document.getElementById(location.hash.slice(1));
+    if (target) window.scrollTo({ top: target.offsetTop, behavior: "auto" });
+  };
+  requestAnimationFrame(align);
+  window.setTimeout(align, 120);
+}
+
+renderCaseStudies();
 renderProjects();
 renderContributions();
 renderArchive();
 renderProgress();
 setupObservers();
 setupKeyboardNavigation();
+alignInitialHash();
 animateCounters();
