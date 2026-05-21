@@ -1,8 +1,7 @@
-import { archiveProjects, caseStudies, contributions, featuredProjects } from "./data.js?v=20260521e";
+import { archiveProjects, caseStudies, featuredProjects } from "./data.js?v=20260521f";
 
 const caseStudyHost = document.querySelector("#case-studies");
 const projectGrid = document.querySelector("#featured-projects");
-const contributionList = document.querySelector("#contribution-list");
 const archiveGrid = document.querySelector("#archive-grid");
 const progressRail = document.querySelector(".progress-rail");
 let sections = [];
@@ -82,22 +81,6 @@ function renderProjects() {
             </div>
           </div>
         </article>
-      `,
-    )
-    .join("");
-}
-
-function renderContributions() {
-  contributionList.innerHTML = contributions
-    .map(
-      (item, index) => `
-        <a class="contribution-item reveal" href="${item.url}">
-          <span class="contribution-index">${String(index + 1).padStart(2, "0")}</span>
-          <span>
-            <strong>${item.title}</strong>
-            <small>${item.project} / ${item.meta}</small>
-          </span>
-        </a>
       `,
     )
     .join("");
@@ -210,7 +193,6 @@ function alignInitialHash() {
 
 renderCaseStudies();
 renderProjects();
-renderContributions();
 renderArchive();
 renderProgress();
 setupObservers();

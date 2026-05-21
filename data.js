@@ -74,20 +74,6 @@ export const featuredProjects = [
     proof: "Recent merged work spans OAuth, Docker, Fly.io, frontend simplification, and AI dev guidance.",
   },
   {
-    name: "Paperclip",
-    owner: "gregagi",
-    repo: "paperclip",
-    role: "Contributor",
-    description: "Open-source orchestration for zero-human companies.",
-    language: "TypeScript",
-    stars: 0,
-    forks: 0,
-    homepage: "https://paperclip.ing",
-    repoUrl: "https://github.com/gregagi/paperclip",
-    tags: ["AI agents", "orchestration", "React", "Node"],
-    proof: "A relevant AI systems UI: org charts, budgets, heartbeats, governance, and agent coordination.",
-  },
-  {
     name: "FileBridge",
     owner: "LVTD-LLC",
     repo: "filebridge",
@@ -145,72 +131,8 @@ export const featuredProjects = [
   },
 ];
 
-export const contributions = [
-  {
-    title: "Simplified generated frontend stack",
-    project: "LVTD-LLC/django-saas-starter",
-    url: "https://github.com/LVTD-LLC/django-saas-starter/pull/79",
-    meta: "Merged May 21, 2026",
-  },
-  {
-    title: "Added Fly.io deployment support",
-    project: "LVTD-LLC/django-saas-starter",
-    url: "https://github.com/LVTD-LLC/django-saas-starter/pull/78",
-    meta: "Merged May 21, 2026",
-  },
-  {
-    title: "Added MCP dataset row management tools",
-    project: "LVTD-LLC/filebridge",
-    url: "https://github.com/LVTD-LLC/filebridge/pull/32",
-    meta: "Merged May 15, 2026",
-  },
-  {
-    title: "Added Google Sheets write-back sync",
-    project: "LVTD-LLC/filebridge",
-    url: "https://github.com/LVTD-LLC/filebridge/pull/33",
-    meta: "Merged May 15, 2026",
-  },
-  {
-    title: "Polished Google Sheets connection UI",
-    project: "LVTD-LLC/filebridge",
-    url: "https://github.com/LVTD-LLC/filebridge/pull/39",
-    meta: "Merged May 16, 2026",
-  },
-  {
-    title: "Consolidated agent instructions",
-    project: "rasulkireev/TuxSEO",
-    url: "https://github.com/rasulkireev/TuxSEO/pull/250",
-    meta: "Merged May 20, 2026",
-  },
-  {
-    title: "Fixed oversized company email index",
-    project: "rasulkireev/tjalerts",
-    url: "https://github.com/rasulkireev/tjalerts/pull/44",
-    meta: "Merged May 11, 2026",
-  },
-  {
-    title: "Added vector workflow",
-    project: "rasulkireev/talentleads",
-    url: "https://github.com/rasulkireev/talentleads/pull/17",
-    meta: "Merged Oct 18, 2025",
-  },
-  {
-    title: "Modernized TJ Alerts",
-    project: "rasulkireev/tjalerts",
-    url: "https://github.com/rasulkireev/tjalerts/pull/42",
-    meta: "Merged Oct 24, 2025",
-  },
-];
-
 export const archiveProjects = [
   ["ask-hn-digests", "Digest of engaging Hacker News discussions.", "92 commits last year", "https://github.com/rasulkireev/ask-hn-digests"],
   ["cleanapp", "Anki for your sites.", "28 commits last year", "https://github.com/rasulkireev/cleanapp"],
-  ["gregagi/awesome-django", "Curated Django ecosystem resource with a live site.", "Django ecosystem", "https://github.com/gregagi/awesome-django"],
-  ["LVTD-LLC/mac-apps-directory", "Searchable Astro directory for open-source macOS apps.", "Astro", "https://github.com/LVTD-LLC/mac-apps-directory"],
   ["LVTD-LLC/colorpick", "Open-source macOS color picker utility built with SwiftUI.", "Swift", "https://github.com/LVTD-LLC/colorpick"],
-  ["LVTD-LLC/paperclip-openclaw-bridge", "Third-party Paperclip adapter for OpenClaw Gateway.", "TypeScript", "https://github.com/LVTD-LLC/paperclip-openclaw-bridge"],
-  ["awesome-selfhosted-analysis", "Analysis of Awesome Self-Hosted repositories.", "JavaScript", "https://github.com/rasulkireev/awesome-selfhosted-analysis"],
-  ["joplin-plugin-better-markdown-exporter", "Markdown exporter plugin for Joplin.", "TypeScript", "https://github.com/rasulkireev/joplin-plugin-better-markdown-exporter"],
-  ["auto-tags-obsidian", "Obsidian plugin that generates note tags.", "TypeScript", "https://github.com/rasulkireev/auto-tags-obsidian"],
-  ["knowthyself", "Personal data aggregation and reflection project.", "Python", "https://github.com/rasulkireev/knowthyself"],
 ];

@@ -20,7 +20,7 @@ Then open `http://localhost:4173`.
 
 - Main page structure: `index.html`
 - Visual design: `styles.css`
-- Project and contribution data: `data.js`
+- Project data: `data.js`
 - Rendering and interactions: `main.js`
 
 ## Deployment
